@@ -1,0 +1,2 @@
+class Chatlog < ApplicationRecord
+end

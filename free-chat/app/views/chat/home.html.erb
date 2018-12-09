@@ -1,0 +1,25 @@
+<h1>フリーチャット会場〜Take it easy〜</h1>
+<p>現在時刻は<%= @time %>です。</p>
+<p>ようこそ「匿名ユーザー」さん</p>
+
+
+<%= form_for(@chat , url:chat_home_path() , method: :post) do |f| %>
+
+　<div class='field'>
+    <%= f.label "入力欄" %>
+    <%= f.text_field :text , :placeholder => "好きなコメント入力してや"%><%= f.submit "コメントする"%>
+
+  </div>
+<% end %>
+
+<ul>
+  <p>チャット覧</p>
+<table>
+  <% @chatlog.each do |chat| %>
+  <li>
+    <%= chat.name%>「<%= chat.text %>  」
+    <%= link_to "[削除]" , chat_home_path(id: chat) , method: :delete %>
+  </li>
+  <% end %>
+</table>
+</ul>
