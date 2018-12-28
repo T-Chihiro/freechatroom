@@ -1,25 +1,64 @@
 <h1>フリーチャット会場〜Take it easy〜</h1>
 <p>現在時刻は<%= @time %>です。</p>
+
+<div class ="container">
+
+
+
+<% if(params[:id] == nil) %>
+	<%= form_for(@user, url: chat_regist_login_path() , method: :post) do |f| %>
+		<div class='user_zone'>
+			<p class="user_zone-title">ユーザー登録・ログイン</p>
+			<%if flash[:alert] %>
+				<p><%= flash[:alert]%></p>
+			<% end %>
+	  		<p><%= f.text_field :name , :placeholder => "ユーザー名"%></p>
+			<p><%= f.text_field :password , :placeholder => "パスワード"%></p>
+			<%= submit_tag "登録"%>
+			<%= submit_tag "ログイン"%>
+		</div>
+	<% end %>
+
+<% end %>
+</div>
+
+
 <p>ようこそ「匿名ユーザー」さん</p>
+<% if(params[:id] != nil) %>
+<p>ようこそ「ネームドユーザー」さん</p>
+<% end %>
 
 
-<%= form_for(@chat , url:chat_home_path() , method: :post) do |f| %>
 
-　<div class='field'>
+
+<%= form_for(@chat , url: chat_add_path(), method: :post) do |f| %>
+　<div class='input_chat'>
     <%= f.label "入力欄" %>
     <%= f.text_field :text , :placeholder => "好きなコメント入力してや"%><%= f.submit "コメントする"%>
 
   </div>
 <% end %>
 
+<div class = chat_zone>
+
 <ul>
-  <p>チャット覧</p>
-<table>
+<div class = chat_zone-title>チャット覧</div>
   <% @chatlog.each do |chat| %>
   <li>
-    <%= chat.name%>「<%= chat.text %>  」
-    <%= link_to "[削除]" , chat_home_path(id: chat) , method: :delete %>
+    <% if chat.name == nil %>
+	<% # 匿名さん %>
+    <% else %>
+        <%= chat.name %>
+    <% end %>
+
+
+  <div class="balloon1">
+   「<%= chat.text %>」
+  </div>
+    <% if chat.name == nil %>
+    	<%= link_to "[削除]" , chat_home_path(id: chat) , method: :delete %>
+    <% end %>
   </li>
   <% end %>
-</table>
 </ul>
+</div>

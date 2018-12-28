@@ -5,7 +5,9 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-ActiveRecord::Base.protected_environments = %w(production staging)
+
+#下のやつ加えたが何も起きなかった
+#ActiveRecord::Base.protected_environments = %w(production staging)
 
 module FreeChat
   class Application < Rails::Application
