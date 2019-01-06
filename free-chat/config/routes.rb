@@ -2,11 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'chat#home'
 
-
-
-
   get 'chat/home' , to: 'chat#home'
-
 
   #新規コメント用
   #match 'chat/add' => 'chat#add',:via => :post

@@ -9,6 +9,9 @@ class ChatController < ApplicationController
     @user = User.new()
     #チャット入力用
     @chat = Chatlog.new()
+    #puts "表示します"
+    #puts params[:name]
+
   end
 
   #ユーザー登録・ログイン時
@@ -24,10 +27,10 @@ class ChatController < ApplicationController
 		elsif @user.name != "" && @user.password != nil
 			flash[:alert] =  "登録しました"
 			@user.save
-
 		else
 			flash[:alert] =  "入力が不十分です"
 		end
+
 	elsif params[:commit] == "ログイン"
 		p "ログイン中"
 		search_user = User.find_by(name: @user.name)
@@ -47,13 +50,9 @@ class ChatController < ApplicationController
 	redirect_to chat_home_path
   end
 
-
-
-
   #ログアウト時
-  def logout
-  end
-
+  #def logout
+  #end
 
   #コメント追加時
   def add
@@ -62,18 +61,17 @@ class ChatController < ApplicationController
     if @chat.text != ""
       @chat.save
     end
-    redirect_to chat_home_path
+    redirect_to chat_home_path(name: params[:name])
   end
-  
+
   #コメント削除
   def destroy
-    
     @chat = Chatlog.find(params[:id])
-    puts "名前がない場合はデータ削除します"
-    if @chat.name == nil
-      @chat.destroy
-    end
-    redirect_to chat_home_path()
+    #puts "名前がない場合はデータ削除します"
+    #if @chat.name == nil
+    @chat.destroy
+    #end
+    redirect_to chat_home_path(name: params[:name])
 
 
   end
