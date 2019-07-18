@@ -1,0 +1,372 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ */
+
+
+/*bootstrap使用宣言*/
+
+@import "bootstrap";
+
+/*ユーザー登録部分*/
+
+.user_zone {
+    position: relative;
+    margin: 2em 0;
+    padding: 0.5em 1em;
+    border: solid 3px #95ccff;
+    background: #fff0cd;
+    border-radius: 8px;
+}
+
+.user_zone .user_zone-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #FFF;
+    color: #95ccff;
+    font-weight: bold;
+}
+
+.user_zone p {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*各コメント部分*/
+
+.balloon1 {
+    position: relative;
+    display: inline-block;
+    margin: 0.5em 0 0.1em 10px;
+    padding: 7px 10px;
+    min-width: 120px;
+    max-width: 100%;
+    color: #555;
+    font-size: 16px;
+    background: #e0edff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+}
+
+.balloon1:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    margin-top: -15px;
+    border: 15px solid transparent;
+    border-right: 15px solid #e0edff;
+}
+
+.balloon1 p {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*コメントテーブル全体*/
+
+.chat_zone {
+    background: #fff0cd;
+    box-shadow: 0px 0px 0px 10px #fffde8;
+    /*線の外側*/
+    border: solid 3px #95ccff;
+    border-radius: 9px;
+    padding: 0;
+}
+
+.chat_zone .chat_zone-title {
+    font-size: 1.2em;
+    margin-left: -42px;
+    margin-right: -2px;
+    margin-top: -19px;
+    border: dashed 2px #95ccff;
+    border-radius: 9px;
+    padding: 4px;
+    text-align: center;
+    color: #95ccff;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+}
+
+.chat_zone p {
+    padding: 15px 20px;
+    margin: 0;
+}
+
+
+/*ヒューマンインターフェースの講義から移植*/
+
+.whole-head {
+    font-size: large;
+    position: relative;
+    background: #DDFFFF;
+    top: 0;
+    z-index: 100;
+    /* font-family:bold; */
+    /* font-weight: bold; */
+    /* border: solid 2px #4ec4d3; */
+    border-radius: 10px;
+}
+
+.main-head {
+    /* background: #03A9F4; */
+    position: relative;
+    color: #FFF;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.sub-head {
+    position: relative;
+    padding-top: 1em;
+    margin-top: -2em;
+    color: #FFF;
+    margin-right: 0;
+    text-align: right;
+    font-size: 0.7em;
+}
+
+.site-header {
+    /* background-repeat: repeat-x; */
+    /* background-position: 0px 50px; */
+    background: #03A9F4;
+    top: 0;
+    position: fixed;
+    /* margin-top: 0; */
+    /* height: 112px; */
+    z-index: 2;
+    /* width: 100%; */
+    /* heigth: 100px; */
+    /* text-align: center; */
+    border-radius: 0 0 20px 20px;
+}
+
+.ribbon1 {
+    display: inline-block;
+    position: absolute;
+    left: 5em;
+    /* margin: 0; */
+    /* padding: 10px 0; */
+    z-index: 2;
+    width: 40px;
+    text-align: center;
+    font-size: 17px;
+    color: white;
+    background: #ff785b;
+}
+
+.ribbon1:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100%;
+    height: 0;
+    width: 0;
+    border-left: 20px solid #ff785b;
+    border-right: 20px solid #ff785b;
+    border-bottom: 10px solid transparent;
+}
+
+.ribbon2 {
+    display: inline-block;
+    position: absolute;
+    /* margin-top: 0; */
+    right: 5em;
+    /* margin: 0; */
+    /* padding: 10px 0; */
+    z-index: 2;
+    width: 40px;
+    text-align: center;
+    font-size: 17px;
+    color: white;
+    background: #ff785b;
+}
+
+.ribbon2:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 100%;
+    height: 0;
+    width: 0;
+    border-left: 20px solid #ff785b;
+    border-right: 20px solid #ff785b;
+    border-bottom: 10px solid transparent;
+}
+
+
+/* 右のメニューバーについて */
+
+.left-sidebar {
+    /* padding-left: 1em;
+  padding-top: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em; */
+    position: fixed;
+    margin-top: 1em;
+    margin-left: 1em;
+    /* width:20%; */
+    /* top: 150; */
+    z-index: 2;
+    text-align: center;
+    /* border: 1px solid #cccccc; */
+    background: #DDFFFF;
+    border: solid 2px #03A9F4;
+    border-radius: 10px;
+    border-color: #0033FF;
+}
+
+.left-sidebar .title {
+    font-size: 1.2em;
+    background: #03A9F4;
+    padding: 4px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    border-radius: 5 5 0 0;
+    /* border-color: #0033FF; */
+    border-bottom: solid 2px #0033FF;
+}
+
+.left-sidebar .menu {
+    margin-top: 0.2em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.left-sidebar img {
+    margin-top: 0.2em;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    width: 8em;
+}
+
+
+/* ボタン関係 */
+
+.square_btn {
+    position: relative;
+    display: inline-block;
+    /* font-weight: bold; */
+    /* margin-left: 0.5em; */
+    margin-top: 0.1em;
+    margin-right: 0.5em;
+    /* margin-bottom: 1em; */
+    /* margin: 0.1em 0.1em 0.1em 0.1em; */
+    padding: 0.25em 0.5em;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+    color: #FFF;
+    background: #03A9F4;
+    transition: .4s;
+    border: solid 1px #00bcd4;
+    border-radius: 10px;
+}
+
+.square_btn:hover {
+    background: #668ad8;
+    border: solid 1px #668ad8;
+}
+
+.main-content {
+    padding-left: 1em;
+    padding-top: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+    margin-right: 1em;
+    margin-bottom: 2em;
+    border-radius: 10px;
+    /* border: 1px solid #cccccc; */
+    border: solid 2px #03A9F4;
+    border-color: #0033FF;
+    background: #FFFF99;
+    top: 1em;
+    left: 1em;
+    /* left: 100px; */
+    margin-left: 10em;
+    /* width: 70%; */
+    position: relative;
+    z-index: 3;
+    /* background: #AEFFBD; */
+    /* font-size: 2vw; */
+}
+
+.main-content .title {
+    font-size: 2em;
+    border-bottom: dashed 1px;
+    margin-bottom: 0.5em;
+}
+
+
+/* 星座用横テーブル */
+
+table {
+    border-collapse: separate;
+    border-spacing: 0px 2px;
+    margin: 0 auto;
+}
+
+td,
+th {
+    padding: 10px;
+}
+
+th {
+    background: #03A9F4;
+    color: #fff;
+}
+
+td {
+    background: #DDFFFF;
+}
+
+.snail_watch {
+    text-align: center;
+    position: relative;
+}
+
+.snail_watch canvas {
+    /* position: absolute; */
+}
+
+canvas {
+    /* background-color: transparent; */
+    border: solid 1px #0033FF;
+}
+
+#snail_canvas1 {
+    /* width: 100px;
+  height: 100px; */
+    background-color: white;
+    z-index: 1;
+    border: solid 1px black;
+    position: absolute
+}
+
+#snail_canvas2 {
+    /* width: 100px;
+  /* height: 100px; */
+    background-color: transparent;
+    z-index: 2;
+    position: relative;
+    border: solid 1px red;
+}

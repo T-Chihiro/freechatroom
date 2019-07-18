@@ -7,9 +7,39 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  <head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+     <!--<link href='style.css' rel='stylesheet' type='text/css' >
+     <link href='./css/bootstrap.min.css' rel='stylesheet'>-->
+     <script type='text/javascript' charset='utf-8' src='index.js'></script>
+     <meta name='viewport' content='width=device-width,initial-scale=1'>
+     <title>ヒューマンインターフェイス18677128_辻野智大</title>
+  </head>
+
+
+
+
+
   </head>
 
   <body>
-    <%= yield %>
+  <script>header('トップページ');</script>
+  <script>sidebar();</script>
+
+      <div class='container-fluid'>
+      <div class='main-content'>
+        <div class='title'>ヒューマンインターフェース用webページ</div>
+        <img class='snails' src='image/illustrain10-tuyu04-150x150.png'><br>
+        今日は<script>nowday();</script><br>
+        ようこそ。今日はきっといい天気ですね。<br><br>
+        左のメニュー覧から、他のページに飛ぶことができます。
+        <%= yield %>
+      </div>
+    </div>
+
+
+
   </body>
 </html>

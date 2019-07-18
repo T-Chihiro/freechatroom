@@ -1,6 +1,12 @@
 <h1>フリーチャット会場</h1>
 <p>現在時刻は<%= @time %>です。</p>
 
+<a class="btn btn-primary" href="#" role="button">Link</a>
+<button class="btn btn-primary" type="submit">Button</button>
+<input class="btn btn-primary" type="button" value="Input">
+<input class="btn btn-primary" type="submit" value="Submit">
+<input class="btn btn-primary" type="reset" value="Reset">
+
 <div class ="container">
 
 
@@ -26,9 +32,9 @@
 
 <%= form_for(@chat , url: chat_add_path(name: params[:name]), method: :post) do |f| %>
 　<div class='input_chat'>
-    <%= f.label "入力欄" %>
+    <%= f.label "入力欄　" %>
 		<%= f.hidden_field :name , :value => params[:name]%>
-    <%= f.text_field :text , :placeholder => "好きなコメント入力してや"%><%= f.submit "コメントする"%>
+    <%= f.text_field :text , :placeholder => "好きなコメント入力してください"%><%= f.submit "　コメントする　"%>
   </div>
 <% end %>
 
