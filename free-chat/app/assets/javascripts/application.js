@@ -45,10 +45,6 @@ function sidebar() {
     html += "      <div class='left-sidebar'>";
     html += "        <div class='title'>メニュー覧</div>";
     html += "        <div class='menu'>";
-    html += "        <a href='index.html' class='square_btn'>トップページ</a><br>";
-    html += "        <a href='f2c.html' class='square_btn'>f2c converter</a><br>";
-    html += "        <a href='touch.html' class='square_btn'>touch</a><br>";
-    html += "        <a href='music.html' class='square_btn'>音楽鑑賞</a><br>";
     html += "        <a href='seizauranai.html' class='square_btn'>星座占い</a><br>";
     html += "        <a href='snail_watch.html'><img src='image/illustrain01-eto-i021-150x150.png'></a><br>";
     html += "        </div>";

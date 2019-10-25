@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FreeChat</title>
+    <title>Free_Chat_Room</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-
-  <head>
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-     <!--<link href='style.css' rel='stylesheet' type='text/css' >
-     <link href='./css/bootstrap.min.css' rel='stylesheet'>-->
-     <script type='text/javascript' charset='utf-8' src='index.js'></script>
-     <meta name='viewport' content='width=device-width,initial-scale=1'>
-     <title>ヒューマンインターフェイス18677128_辻野智大</title>
-  </head>
+    <script type='text/javascript' charset='utf-8' src='index.js'></script>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
 
-
-
-
+    <header class='whole-head'>
+      <div class = 'container-fluid'>
+        <span class='ribbon1'>★</span><span class='ribbon2'>★</span>
+        <div class='main-head'>" + "おいおいおい" + "</div>
+        <div class = 'sub-head'><script>nowday();</script></div>
+      </div>
+      <%# <div class = 'container-fluid site-header'>
+        <span class='ribbon1'>★</span><span class='ribbon2'>★</span>
+        <div class='main-head'>" + word + "</div>
+        <div class = 'sub-head'>18677128 辻野智大</div>
+      </div>; %>
+    </header>;
 
   </head>
 
@@ -31,15 +34,13 @@
       <div class='container-fluid'>
       <div class='main-content'>
         <div class='title'>ヒューマンインターフェース用webページ</div>
-        <img class='snails' src='image/illustrain10-tuyu04-150x150.png'><br>
+        <img class='snails' src='illustrain10-tuyu04-150x150.png'><br>
         今日は<script>nowday();</script><br>
         ようこそ。今日はきっといい天気ですね。<br><br>
         左のメニュー覧から、他のページに飛ぶことができます。
         <%= yield %>
       </div>
     </div>
-
-
 
   </body>
 </html>
