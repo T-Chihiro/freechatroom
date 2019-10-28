@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  #スタート画面
   root to: 'chat#home'
 
   get 'chat/home' , to: 'chat#home'
@@ -10,6 +11,11 @@ Rails.application.routes.draw do
   post 'chat/regist_login' , to: 'chat#regist_login'
   #コメント削除
   delete 'chat/home' , to: 'chat#destroy'
+
+  #ログイン、ログアウト用
+  post 'sessions/login' => "sessions#new"
+  post "sessions/logout" => "sessions#logout"
+
 
 
 end

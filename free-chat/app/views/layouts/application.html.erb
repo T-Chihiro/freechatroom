@@ -1,3 +1,4 @@
+<%# ヘッダー %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,35 +13,51 @@
     <script type='text/javascript' charset='utf-8' src='index.js'></script>
     <meta name='viewport' content='width=device-width,initial-scale=1'>
 
-    <header class='whole-head'>
+    <%# <header class='whole-head'>
       <div class = 'container-fluid'>
         <span class='ribbon1'>★</span><span class='ribbon2'>★</span>
         <div class='main-head'>" + "おいおいおい" + "</div>
         <div class = 'sub-head'><script>nowday();</script></div>
       </div>
-      <%# <div class = 'container-fluid site-header'>
+
+    </header>; %>
+    <%# <script string title_word = "ゆっくりしていってね!"> </script> %>
+    <header class='whole-head'>
+      <div class = 'container-fluid'><%#ヘッダー固定用の下敷き %>
         <span class='ribbon1'>★</span><span class='ribbon2'>★</span>
-        <div class='main-head'>" + word + "</div>
-        <div class = 'sub-head'>18677128 辻野智大</div>
-      </div>; %>
-    </header>;
+        <div class = 'header_contents'>
+          <div class='header-center'>ゆっくりしていきたい所存です</div>
+          <div class = 'header-right'>test用</div>
+        </div>
+
+      </div>
+      <div class = 'container-fluid site-header'>
+        <span class = 'ribbon1'>★</span><span class = 'ribbon2'>★</span>
+          <div class = header_contents>
+            <div class = 'header-center'>ゆっくりしていってね </div>
+            <div class = 'header-right'>day</div>
+          </div>
+      </div>
+
+    </header>
 
   </head>
 
-  <body>
-  <script>header('トップページ');</script>
-  <script>sidebar();</script>
 
-      <div class='container-fluid'>
-      <div class='main-content'>
-        <div class='title'>ヒューマンインターフェース用webページ</div>
-        <img class='snails' src='illustrain10-tuyu04-150x150.png'><br>
-        今日は<script>nowday();</script><br>
-        ようこそ。今日はきっといい天気ですね。<br><br>
-        左のメニュー覧から、他のページに飛ぶことができます。
-        <%= yield %>
-      </div>
+  <body>
+
+
+
+  <%# <script>header('ホームページ');</script> %>
+  <div class = 'container-fluid'>
+    <script>sidebar();</script>
+    <div class='main-content'>
+      <%# 今日は<script>nowday();</script><br>
+      ようこそ。今日はきっといい天気ですね。<br><br>
+      左のメニュー覧から、他のページに飛ぶことができます。 %>
+      <%= yield %><%#>ここに各ページの内容が入る<%>
     </div>
+  </div>
 
   </body>
 </html>

@@ -32,7 +32,7 @@
 .user_zone .user_zone-title {
     position: absolute;
     display: inline-block;
-    top: -13px;
+    top: -15px;
     left: 10px;
     padding: 0 9px;
     line-height: 1;
@@ -43,12 +43,12 @@
 }
 
 .user_zone p {
-    margin: 0;
-    padding: 0;
+    margin: 1px;
+    padding-top: 5px;
 }
 
 
-/*各コメント部分*/
+/*各コメント部分の吹き出し*/
 
 .balloon1 {
     position: relative;
@@ -79,7 +79,7 @@
 }
 
 
-/*コメントテーブル全体*/
+/*チャットコメントテーブル全体*/
 
 .chat_zone {
     background: #fff0cd;
@@ -94,8 +94,9 @@
     font-size: 1.2em;
     margin-left: -42px;
     margin-right: -2px;
-    margin-top: -19px;
-    border: dashed 2px #95ccff;
+    //margin-top: -10px;
+    margin-bottom: 0.5em;
+    border-bottom: dashed 2px #95ccff;
     border-radius: 9px;
     padding: 4px;
     text-align: center;
@@ -110,22 +111,33 @@
 }
 
 
-/*ヒューマンインターフェースの講義から移植*/
+/*ヘッダー関係*/
 
 .whole-head {
     font-size: large;
-    position: relative;
-    background: #DDFFFF;
+    //position: relative;
+    background: rgb(63, 207, 207);
     top: 0;
     z-index: 100;
     /* font-family:bold; */
     /* font-weight: bold; */
-    /* border: solid 2px #4ec4d3; */
-    border-radius: 10px;
+    // border: solid 2px #4ec4d3;
+    border-radius: 0 0 20px 20px;
+    //background-clip: padding-box;
+    //height: 100px;
 }
 
-.main-head {
-    /* background: #03A9F4; */
+.header-contents {
+    position: relative;
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    margin: 0 auto;
+    height: 100%;
+}
+
+//ヘッダーがずれないようにヘッダーの下に潜り込ませるヘッダー
+.header-center {
     position: relative;
     color: #FFF;
     text-align: center;
@@ -133,16 +145,16 @@
     font-weight: bold;
 }
 
-.sub-head {
+//ヘッダーがずれないようにヘッダーの下にも繰り込ませるヘッダー
+.header-right {
     position: relative;
-    padding-top: 1em;
-    margin-top: -2em;
     color: #FFF;
     margin-right: 0;
     text-align: right;
     font-size: 0.7em;
 }
 
+//ヘッダーを画面に固定するためのCSS
 .site-header {
     /* background-repeat: repeat-x; */
     /* background-position: 0px 50px; */
@@ -151,7 +163,7 @@
     position: fixed;
     /* margin-top: 0; */
     /* height: 112px; */
-    z-index: 2;
+    z-index: 100; //他のものより上に来るようにする
     /* width: 100%; */
     /* heigth: 100px; */
     /* text-align: center; */
@@ -212,7 +224,7 @@
 }
 
 
-/* 右のメニューバーについて */
+/* 右のメニューバー */
 
 .left-sidebar {
     /* padding-left: 1em;
@@ -287,6 +299,7 @@
     border: solid 1px #668ad8;
 }
 
+//ページのメインとなる部分のCSS
 .main-content {
     padding-left: 1em;
     padding-top: 1em;
@@ -312,6 +325,7 @@
 
 .main-content .title {
     font-size: 2em;
+    text-align: center;
     border-bottom: dashed 1px;
     margin-bottom: 0.5em;
 }

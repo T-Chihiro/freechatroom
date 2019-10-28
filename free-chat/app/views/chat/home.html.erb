@@ -1,62 +1,63 @@
-<h1>フリーチャット会場</h1>
+<%#>チャット用ページ <%>
+<div class='title'>フリーチャット
+<%# <%=Time.now%>
+<%# <%= image_tag('illustrain10-tuyu04-150x150.png') %>
+</div>
+
 <p>現在時刻は<%= @time %>です。</p>
 
-<a class="btn btn-primary" href="#" role="button">Link</a>
-<button class="btn btn-primary" type="submit">Button</button>
-<input class="btn btn-primary" type="button" value="Input">
-<input class="btn btn-primary" type="submit" value="Submit">
-<input class="btn btn-primary" type="reset" value="Reset">
-
-<div class ="container">
 
 
+	<%# ログインしてるかしてないかで反応を変更する %>
 	<% if(params[:name] != nil) %>
 	 	ようこそ「<%= params[:name] %>」さん <%= button_to "ログアウト" , chat_home_path , method: :get%>
 	<% else %>
 		<p>ようこそ「匿名ユーザー」さん</p>
-		<%= form_for(@user, url: chat_regist_login_path() , method: :post) do |f| %>
 		<div class='user_zone'>
-			<p class="user_zone-title">ユーザー登録・ログイン</p>
-			<%if flash[:alert] %>
+			<div class="user_zone-title">ユーザー登録・ログイン</div>
+			<%if flash[:alert] %><%#>警告あればここに表示<%>
 				<p><%= flash[:alert]%></p>
 			<% end %>
-			<p><%= f.text_field :name , :placeholder => "ユーザー名"%></p>
-			<p><%= f.password_field :password , :placeholder => "パスワード"%></p>
-			<%= submit_tag "登録"%>
-			<%= submit_tag "ログイン"%>
+			<%= form_for(@user, url: chat_regist_login_path() , method: :post) do |f| %>
+				<p><%= f.text_field :name , :placeholder => "ユーザー名"%>
+				<%= f.password_field :password , :placeholder => "パスワード"%></p>
+				<%= submit_tag "登録"%> or <%= submit_tag "ログイン"%>
+			<% end %>
 		</div>
-		</div>
-		<% end %>
 	<% end %>
 
 
-<%= form_for(@chat , url: chat_add_path(name: params[:name]), method: :post) do |f| %>
-　<div class='input_chat'>
-    <%= f.label "入力欄　" %>
-		<%= f.hidden_field :name , :value => params[:name]%>
-    <%= f.text_field :text , :placeholder => "好きなコメント入力してください"%><%= f.submit "　コメントする　"%>
-  </div>
-<% end %>
+	<%= form_for(@chat , url: chat_add_path(name: params[:name]), method: :post) do |f| %>
+　		<div class='input_chat'>
+    		<%= f.label "入力欄　" %>
+			<%= f.hidden_field :name , :value => params[:name]%>
+    		<%= f.text_field :text , :placeholder => "好きなコメントをどうぞ"%><%= f.submit "　コメントする　"%>
+  		</div>
+	<% end %>
 
-<div class = chat_zone>
-<ul>
-<div class = chat_zone-title>チャット覧</div>
-  <% @chatlog.each do |chat| %>
-  <li>
-    <% if chat.name == nil %>
-	<%#  匿名さん %>
-    <% else %>
-        <%= chat.name %>
-    <% end %>
+	<br>
 
+	<div class = chat_zone>
+	<ul>
+	<div class = chat_zone-title>チャット覧</div>
+  	<% @chatlog.each do |chat| %>
+  		<li>
+		  <%# 名前部分 %>
+    		<% if chat.name == nil %>
+			<%#  匿名さん %>
+    		<% else %>
+        		<%= chat.name %>
+  		  	<% end %>
 
-  <div class="balloon1">
-   「<%= chat.text %>」
-  </div>
-    <% if( chat.name == nil || chat.name == "" || params[:name] == chat.name)%>
-    	<%= link_to "[削除]" , chat_home_path(id: chat , name: params[:name]) , method: :delete %>
-    <% end %>
-  </li>
-  <% end %>
-</ul>
-</div>
+			<%# コメント部分 %>
+  			<div class="balloon1">
+   				「<%= chat.text %>」
+  			</div>
+			<%# 削除ボタンの表示判定 %>
+    		<% if( chat.name == nil || chat.name == "" || params[:name] == chat.name)%>
+    			<%= link_to "[削除]" , chat_home_path(id: chat , name: params[:name]) , method: :delete %>
+	    	<% end %>
+  		</li>
+  	<% end %>
+	</ul>
+

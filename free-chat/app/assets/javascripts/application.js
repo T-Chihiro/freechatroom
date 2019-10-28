@@ -20,37 +20,38 @@
 //= require popper
 //= require bootstrap-sprockets
 
-
-function header(word) {
+//ヘッダー生成
+function header(pagename) {
     var html = "";
     html += "<header class='whole-head'>";
     html += "<div class = 'container-fluid'>"
     html += "<span class='ribbon1'>★</span><span class='ribbon2'>★</span>";
-    html += "<div class='main-head'>" + word + "</div>";
-    html += "<div class = 'sub-head'>18677128 辻野智大</div>";
+    html += "<div class='main-head'>" + pagename + "</div>";
+    //string day = nowday();
+    //html += "<div class = 'sub-head'>" + day + "</div>";
     html += "</div>";
     html += "<div class = 'container-fluid site-header'>";
     html += "<span class='ribbon1'>★</span><span class='ribbon2'>★</span>";
-    html += "<div class='main-head'>" + word + "</div>";
-    html += "<div class = 'sub-head'>18677128 辻野智大</div>";
+    html += "<div class='main-head'>" + pagename + "</div>";
+    //html += "<div class = 'sub-head'>" + day + "</div>";
     html += "</div>";
     html += "</header>";
-    // html += "<span class='ribbon1'>★</span><span class='ribbon2'>★</span>"
-    // html += "<div class='main-head'>" + word + "</div>"　+ "<div class = 'sub-head'>18677128 辻野智大</div>"
     document.write(html);
 }
 
+//サイドバー生成
 function sidebar() {
     var html = "";
     html += "      <div class='left-sidebar'>";
     html += "        <div class='title'>メニュー覧</div>";
     html += "        <div class='menu'>";
-    html += "        <a href='seizauranai.html' class='square_btn'>星座占い</a><br>";
-    html += "        <a href='snail_watch.html'><img src='image/illustrain01-eto-i021-150x150.png'></a><br>";
+    html += "        <a hreyf='seizauranai.html' class='square_btn'>星座占い</a><br>";
+    html += "        <a href='snail_watch.html'><img src='illustrain01-eto-i021-150x150.png'></a><br>";
     html += "        </div>";
     html += "      </div>";
     document.write(html);
 }
+
 
 function nowday() {
     var day_of_the_week = new Array("日", "月", "火", "水", "木", "金", "土");
@@ -98,7 +99,10 @@ function horoscopes() {
 
 }
 
-////////////// snail_watch用関数
+
+////////////////////////////////////////////////
+////////////// snail_watch用関数////////////////
+///////////////////////////////////////////////
 
 var button_move = false;
 var img_snail = new Image();
@@ -106,7 +110,7 @@ img_snail.src = "image/illustrain10-tuyu04-150x150.png";
 var snail_first_pos = [270, 50, 50, 50];
 var snail_pos = [snail_first_pos[0], snail_first_pos[1], snail_first_pos[2], snail_first_pos[3], ];
 
-
+//初期化
 function snail_init() {
     // キャンバスは320*180、varなしのグローバル変数
     canvas1 = document.getElementById('snail_canvas1');
@@ -120,7 +124,7 @@ function snail_init() {
 
 }
 
-
+//スタートボタン
 function start_button(x, y, width, height) {
     ctx2.beginPath();
     ctx2.rect(x, y, width, height);
@@ -145,6 +149,7 @@ function start_button(x, y, width, height) {
     }, false);
 }
 
+//リセットボタン
 function reset_button(x, y, width, height) {
     ctx2.beginPath();
     ctx2.rect(x, y, width, height);
@@ -165,6 +170,7 @@ function reset_button(x, y, width, height) {
     }, false);
 }
 
+//resetする
 function snail_reset(x, y, width, height) {
     wait();
     clearInterval(set_timer);
@@ -174,8 +180,6 @@ function snail_reset(x, y, width, height) {
     console.log(snail_pos);
     ctx1.beginPath();
     ctx1.drawImage(img_snail, snail_pos[0], snail_pos[1], snail_pos[2], snail_pos[3]);
-    // ctx1.drawImage(img_snail , 270, 50, 50, 50);
-
     ctx2.clearRect(x + 1 - 160, y + 1, width - 2, height - 2);
     var text = "スタート";
     ctx2.font = "18px 'ＭＳＰゴシック'";
@@ -184,6 +188,7 @@ function snail_reset(x, y, width, height) {
     wait();
 }
 
+//stopする
 function change_stop(x, y, width, height) {
 
     ctx2.clearRect(x + 1, y + 1, width - 2, height - 2);
@@ -196,6 +201,7 @@ function change_stop(x, y, width, height) {
     wait();
 }
 
+//startする
 function change_start(x, y, width, height) {
 
     ctx2.clearRect(x + 1, y + 1, width - 2, height - 2);
@@ -222,6 +228,7 @@ function go() { // スタートで呼び出し。リセット時は呼び出さ�
     if (vx == 0) vx = backupVx;
 }
 
+//カタツムリの座標の更新
 function update() {
     console.log(vx);
     ctx1.clearRect(snail_pos[0], snail_pos[1], snail_pos[2], snail_pos[3]);
