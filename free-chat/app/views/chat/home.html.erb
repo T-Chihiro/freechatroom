@@ -4,60 +4,70 @@
 <%# <%= image_tag('illustrain10-tuyu04-150x150.png') %>
 </div>
 
-<p>現在時刻は<%= @time %>です。</p>
-
-
-
-	<%# ログインしてるかしてないかで反応を変更する %>
+	<%# ログイン状況で反応を変更 %>
 	<% if(params[:name] != nil) %>
-	 	ようこそ「<%= params[:name] %>」さん <%= button_to "ログアウト" , chat_home_path , method: :get%>
+	 	ようこそ「<%= params[:name] %>」さん
+			<div class='user_zone'>
+		  <%= button_to "ログアウト" , chat_home_path , method: :get%>
+		</div>
 	<% else %>
 		<p>ようこそ「匿名ユーザー」さん</p>
 		<div class='user_zone'>
 			<div class="user_zone-title">ユーザー登録・ログイン</div>
 			<%if flash[:alert] %><%#>警告あればここに表示<%>
-				<p><%= flash[:alert]%></p>
+				<p><font size = "2">*<%= flash[:alert]%>*</font></p>
 			<% end %>
 			<%= form_for(@user, url: chat_regist_login_path() , method: :post) do |f| %>
 				<p><%= f.text_field :name , :placeholder => "ユーザー名"%>
-				<%= f.password_field :password , :placeholder => "パスワード"%></p>
-				<%= submit_tag "登録"%> or <%= submit_tag "ログイン"%>
+				<%= f.password_field :password , :placeholder => "パスワード"%>
+				<font size = "2">*ユーザー名は10字以内</font></p>
+				<%= submit_tag "　登録　"%> or <%= submit_tag "ログイン"%>
 			<% end %>
 		</div>
 	<% end %>
 
+	ログインせずにしたコメントは誰でも削除できます。
+	<br>
+	ログインして行ったコメントは本人にしか削除できません。
 
+	<%# コメント入力欄 %>
 	<%= form_for(@chat , url: chat_add_path(name: params[:name]), method: :post) do |f| %>
-　		<div class='input_chat'>
-    		<%= f.label "入力欄　" %>
-			<%= f.hidden_field :name , :value => params[:name]%>
-    		<%= f.text_field :text , :placeholder => "好きなコメントをどうぞ"%><%= f.submit "　コメントする　"%>
-  		</div>
+　		<table>
+    		<tr>
+			<%= f.hidden_field :name , :value => params[:name]%></td>
+    		<td><%= f.text_area :text , :placeholder => "入力欄(100字以内)"%></td>
+			<td><%= f.submit "　コメントする　"%></td>
+		  </div>
+			</tr>
+		</table>
 	<% end %>
 
-	<br>
 
 	<div class = chat_zone>
-	<ul>
 	<div class = chat_zone-title>チャット覧</div>
-  	<% @chatlog.each do |chat| %>
-  		<li>
-		  <%# 名前部分 %>
-    		<% if chat.name == nil %>
-			<%#  匿名さん %>
-    		<% else %>
-        		<%= chat.name %>
-  		  	<% end %>
-
+	<table>
+		<% @chatlog.each do |chat| %>
+  			<tr><%#>リスト配置 %>
+		  		<%# 名前部分 %>
+				  <td>
+    			<% if chat.name == nil || chat.name == "" %>
+				 	「　」
+    			<% else %>
+        			<%= chat.name %>
+  		  		<% end %>
+					</td>
+			<td>
 			<%# コメント部分 %>
   			<div class="balloon1">
-   				「<%= chat.text %>」
+   				<%=simple_format(h(chat.text))%>
   			</div>
+			</td>
+			<td>
 			<%# 削除ボタンの表示判定 %>
-    		<% if( chat.name == nil || chat.name == "" || params[:name] == chat.name)%>
+    		<% if( chat.name == nil || chat.name == "" || params[:name] == chat.name || params[:name] == "admin")%>
     			<%= link_to "[削除]" , chat_home_path(id: chat , name: params[:name]) , method: :delete %>
 	    	<% end %>
-  		</li>
-  	<% end %>
-	</ul>
+			</tr>
+		<% end %>
+  	</table>
 

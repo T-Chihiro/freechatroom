@@ -22,7 +22,7 @@
 
 .user_zone {
     position: relative;
-    margin: 2em 0;
+    margin: 1em 0;
     padding: 0.5em 1em;
     border: solid 3px #95ccff;
     background: #fff0cd;
@@ -38,7 +38,7 @@
     line-height: 1;
     font-size: 19px;
     background: #FFF;
-    color: #95ccff;
+    color: #319bff;
     font-weight: bold;
 }
 
@@ -54,9 +54,9 @@
     position: relative;
     display: inline-block;
     margin: 0.5em 0 0.1em 10px;
-    padding: 7px 10px;
-    min-width: 120px;
-    max-width: 100%;
+    //padding: px 10px;
+    //min-width: 120px;
+    //max-width: 100%;
     color: #555;
     font-size: 16px;
     background: #e0edff;
@@ -86,21 +86,21 @@
     box-shadow: 0px 0px 0px 10px #fffde8;
     /*線の外側*/
     border: solid 3px #95ccff;
-    border-radius: 9px;
-    padding: 0;
+    border-radius: 3px;
+    padding: 1ex;
 }
 
 .chat_zone .chat_zone-title {
     font-size: 1.2em;
-    margin-left: -42px;
-    margin-right: -2px;
+    //margin-left: -42px;
+    //margin-right: -2px;
     //margin-top: -10px;
     margin-bottom: 0.5em;
     border-bottom: dashed 2px #95ccff;
     border-radius: 9px;
     padding: 4px;
     text-align: center;
-    color: #95ccff;
+    color: #319bff;
     font-weight: bold;
     letter-spacing: 0.05em;
 }
@@ -132,8 +132,8 @@
     display: flex;
     width: 90%;
     justify-content: center;
-    margin: 0 auto;
-    height: 100%;
+    //margin: 0 auto;
+    // height: 100%;
 }
 
 //ヘッダーがずれないようにヘッダーの下に潜り込ませるヘッダー
@@ -149,7 +149,7 @@
 .header-right {
     position: relative;
     color: #FFF;
-    margin-right: 0;
+    //margin-right: 0;
     text-align: right;
     font-size: 0.7em;
 }
@@ -224,7 +224,7 @@
 }
 
 
-/* 右のメニューバー */
+/* 右のメニューバー（画面固定） */
 
 .left-sidebar {
     /* padding-left: 1em;
@@ -299,23 +299,23 @@
     border: solid 1px #668ad8;
 }
 
-//ページのメインとなる部分のCSS
+//ページのメインとなる部分
 .main-content {
     padding-left: 1em;
     padding-top: 1em;
     padding-right: 1em;
     padding-bottom: 1em;
-    margin-right: 1em;
-    margin-bottom: 2em;
+    //margin-right: 1em;
+    margin-bottom: 1em;
     border-radius: 10px;
     /* border: 1px solid #cccccc; */
     border: solid 2px #03A9F4;
     border-color: #0033FF;
-    background: #FFFF99;
-    top: 1em;
-    left: 1em;
+    background: rgb(255, 255, 171);
+    margin-top: 1em;
+    //left: 1em;
     /* left: 100px; */
-    margin-left: 10em;
+    //margin-left: 10em; //レフトバーとかぶらないように
     /* width: 70%; */
     position: relative;
     z-index: 3;
@@ -335,22 +335,22 @@
 
 table {
     border-collapse: separate;
-    border-spacing: 0px 2px;
-    margin: 0 auto;
+    //border-spacing: 0px 2px;
+    //margin: 0 auto;
 }
 
 td,
 th {
-    padding: 10px;
+    padding: 5px, 10px;
 }
 
 th {
-    background: #03A9F4;
-    color: #fff;
+    //background: #03A9F4;
+    //color: #fff;
 }
 
 td {
-    background: #DDFFFF;
+    //background: #DDFFFF;
 }
 
 .snail_watch {

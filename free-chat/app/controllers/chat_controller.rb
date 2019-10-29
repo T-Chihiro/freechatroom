@@ -1,7 +1,8 @@
 class ChatController < ApplicationController
   def home
     #現在時刻
-    @time = Time.current.in_time_zone("Asia/Tokyo")
+    tmp = Time.current.in_time_zone("Asia/Tokyo")
+    @time = "#{tmp.year}/#{tmp.month}/#{tmp.day}"
     #テーブルの読み取り
     @users = User.all
     @chatlog = Chatlog.all
@@ -57,7 +58,6 @@ class ChatController < ApplicationController
   #コメント追加時
   def add
     @chat = Chatlog.new(chat_params)
-    puts @chat
     if @chat.text != ""
       @chat.save
     end

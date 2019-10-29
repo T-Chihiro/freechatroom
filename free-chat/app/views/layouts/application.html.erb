@@ -22,12 +22,14 @@
 
     </header>; %>
     <%# <script string title_word = "ゆっくりしていってね!"> </script> %>
+    <%tmp = Time.current.in_time_zone("Asia/Tokyo") %>
+    <%time = "#{tmp.year}/#{tmp.month}/#{tmp.day}"%>
     <header class='whole-head'>
       <div class = 'container-fluid'><%#ヘッダー固定用の下敷き %>
         <span class='ribbon1'>★</span><span class='ribbon2'>★</span>
         <div class = 'header_contents'>
-          <div class='header-center'>ゆっくりしていきたい所存です</div>
-          <div class = 'header-right'>test用</div>
+          <div class='header-center'>ゆっくりしていきましょう</div>
+          <div class = 'header-right'><%=time%></div>
         </div>
 
       </div>
@@ -35,7 +37,7 @@
         <span class = 'ribbon1'>★</span><span class = 'ribbon2'>★</span>
           <div class = header_contents>
             <div class = 'header-center'>ゆっくりしていってね </div>
-            <div class = 'header-right'>day</div>
+            <div class = 'header-right'><%=time%></div>
           </div>
       </div>
 
@@ -50,7 +52,7 @@
 
   <%# <script>header('ホームページ');</script> %>
   <div class = 'container-fluid'>
-    <script>sidebar();</script>
+    <%# <script>sidebar();</script> %>
     <div class='main-content'>
       <%# 今日は<script>nowday();</script><br>
       ようこそ。今日はきっといい天気ですね。<br><br>
