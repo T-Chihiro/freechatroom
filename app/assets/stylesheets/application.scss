@@ -63,8 +63,6 @@
         display: inline-block;
         position: absolute;
         left: 3em;
-        /* margin: 0; */
-        /* padding: 10px 0; */
         z-index: 2;
         width: 40px;
         text-align: center;
@@ -87,10 +85,7 @@
     .ribbon2 {
         display: inline-block;
         position: absolute;
-        /* margin-top: 0; */
         right: 3em;
-        /* margin: 0; */
-        /* padding: 10px 0; */
         z-index: 2;
         width: 40px;
         text-align: center;
@@ -113,18 +108,11 @@
     /* 右のメニューバー（画面固定） */
     
     .left-sidebar {
-        /* padding-left: 1em;
-        padding-top: 1em;
-        padding-right: 1em;
-        padding-bottom: 1em; */
         position: fixed;
         margin-top: 1em;
         margin-left: 1em;
-        /* width:20%; */
-        /* top: 150; */
         z-index: 2;
         text-align: center;
-        /* border: 1px solid #cccccc; */
         background: #DDFFFF;
         border: solid 2px #03A9F4;
         border-radius: 10px;
@@ -140,7 +128,6 @@
         font-weight: bold;
         letter-spacing: 0.05em;
         border-radius: 5 5 0 0;
-        /* border-color: #0033FF; */
         border-bottom: solid 2px #0033FF;
     }
     
@@ -170,13 +157,8 @@
         border: solid 2px #03A9F4;
         border-color: #0033FF;
         background: rgb(255, 255, 171);
-        //left: 1em;
-        /* left: 100px; */
         //margin-left: 10em; //レフトバーとかぶらないように
-        // width: 90%;
         z-index: 3;
-        /* background: #AEFFBD; */
-        /* font-size: 2vw; */
     }
     
     .main-content .title {
@@ -188,7 +170,6 @@
     /*ユーザー登録部分*/
     
     .user-zone {
-        //display: inline-block;
         position: relative;
         margin: 2em 1em 0em;
         padding: 0.5em 1em;
@@ -202,9 +183,7 @@
     
     .user-zone .user-zone-title {
         position: relative;
-        //left: 50px;
         padding: 0 9px;
-        //line-height: 1;
         font-size: 19px;
         background: #FFF;
         color: #319bff;
@@ -239,9 +218,6 @@
     
     .chat_zone .chat_zone-title {
         font-size: 1.2em;
-        //margin-left: -42px;
-        //margin-right: -2px;
-        //margin-top: -10px;
         margin-bottom: 0.5em;
         border-bottom: dashed 2px #95ccff;
         border-radius: 9px;
@@ -262,12 +238,10 @@
         position: relative;
         display: inline-block;
         margin: 0.1em;
-        //padding: px 10px;
         color: #555;
         font-size: 16px;
         background: #e0edff;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
-        //word-wrap: break-word;
     }
     
     //吹き出し部分
@@ -282,13 +256,11 @@
     
     //吹き出しのサイズ調整
     .balloon1 p {
-        //margin: 0;
         padding: 0.5em;
     }
     
     .chat_input {
         position: relative;
-        //text-align: center;
         margin-left: auto;
         margin-right: auto;
     }
@@ -308,12 +280,8 @@
     .square_btn {
         position: relative;
         display: inline-block;
-        /* font-weight: bold; */
-        /* margin-left: 0.5em; */
         margin-top: 0.1em;
         margin-right: 0.5em;
-        /* margin-bottom: 1em; */
-        /* margin: 0.1em 0.1em 0.1em 0.1em; */
         padding: 0.25em 0.5em;
         text-align: center;
         width: 100%;
@@ -333,8 +301,6 @@
     
     table {
         border-collapse: separate;
-        //border-spacing: 0px 2px;
-        //margin: 0 auto;
         word-break: break-word;
         word-wrap: break-word;
     }
@@ -358,13 +324,10 @@
     }
     
     canvas {
-        /* background-color: transparent; */
         border: solid 1px #0033FF;
     }
     
     #snail_canvas1 {
-        /* width: 100px;
-  height: 100px; */
         background-color: white;
         z-index: 1;
         border: solid 1px black;
@@ -372,8 +335,6 @@
     }
     
     #snail_canvas2 {
-        /* width: 100px;
-  /* height: 100px; */
         background-color: transparent;
         z-index: 2;
         position: relative;

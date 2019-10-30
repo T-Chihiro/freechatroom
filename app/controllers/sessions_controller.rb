@@ -10,12 +10,6 @@ class SessionsController < ApplicationController
         #@user.save
         redirect_to chat_home_path()
       else
-        #if search_user
-          #flash[:login_notice] =  "「#{@user.name}」は既に登録されています"
-        #else
-          #flash[:login_notice] =  "入力が不適切です"
-        #end
-
         render template: "chat/home"
       end
     elsif params[:commit] == "ログイン"

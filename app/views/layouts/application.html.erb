@@ -5,10 +5,8 @@
     <title>Free_Chat_Room</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
     <meta name='viewport' content='width=device-width,initial-scale=1'>
 
@@ -35,21 +33,12 @@
       </div>
 
     </header>
-
   </head>
-
-
   <body>
 
-
-
-  <%# <script>header('ホームページ');</script> %>
   <div class = 'container-fluid'>
     <%# <script>sidebar();</script> %>
     <div class='main-content'>
-      <%# 今日は<script>nowday();</script><br>
-      ようこそ。今日はきっといい天気ですね。<br><br>
-      左のメニュー覧から、他のページに飛ぶことができます。 %>
       <%= yield %><%#>ここに各ページの内容が入る<%>
     </div>
   </div>

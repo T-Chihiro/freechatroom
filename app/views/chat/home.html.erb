@@ -1,37 +1,37 @@
 <%#>チャット用ページ <%>
 <div class='title'>フリーチャット</div>
 
-    <%# テーブルの読み取り %>
-    <%@chatlog = Chatlog.all unless @chatlog%>
-	<%@user = User.new() unless @user%>
-    <%@chat = Chatlog.new() unless @chat%>
+<%# テーブルの読み取り %>
+<%@chatlog = Chatlog.all unless @chatlog%>
+<%@user = User.new() unless @user%>
+<%@chat = Chatlog.new() unless @chat%>
 
-	<%# ログイン状況で反応を変更 %>
-	<% if(session[:user_name] != nil) %>
-	 	ようこそ「<%= session[:user_name] %>」さん。<br>
-		ログインせずにしたコメントは誰でも削除できます。<br>
-		ログインして行ったコメントは本人しか削除できません。<br>
-		<div class='user-zone'>
-				<div class="alert alert-warning text_center">
-				<% if @user.errors.any? %><%#>警告などあればここに表示<%>
-      				<% @user.errors.full_messages.each do |message| %>
-        				<li><%= message %></li>
-      				<% end %>
-				<%end%>
-				<%if flash[:login_notice] %><%#>警告などあればここに表示<%>
-					<li>*<%= flash[:login_notice]%>*</li>
-				<% end %>
-				</div>
-	  	<%= session[:user_name] %>さん<%= button_to "ログアウト" , sessions_logout_path , method: :post%>
+<%# ログイン状況で反応を変更 %>
+<% if(session[:user_name] != nil) %>
+	ようこそ「<%= session[:user_name] %>」さん。<br>
+	ログインせずにしたコメントは誰でも削除できます。<br>
+	ログインして行ったコメントは本人しか削除できません。<br>
+	<div class='user-zone'>
+		<div class="alert alert-warning text_center">
+			<% if @user.errors.any? %><%#>警告などあればここに表示<%>
+   				<% @user.errors.full_messages.each do |message| %>
+       				<li><%= message %></li>
+   				<% end %>
+			<%end%>
+			<%if flash[:login_notice] %><%#>警告などあればここに表示<%>
+				<li>*<%= flash[:login_notice]%>*</li>
+			<% end %>
 		</div>
-	<% else %>
-		<p>ようこそ「匿名ユーザー」さん</p>
-		ログインせずにしたコメントは誰でも削除できます。<br>
-		ログインして行ったコメントは本人にしか削除できません。<br>
-		<div class='user-zone'>
-			<div class="user-zone-title">ユーザー登録・ログイン</div>
-			<div class = "user-zone-main">
-				<div class="alert alert-warning text_center">
+	  	<%= session[:user_name] %>さん<%= button_to "ログアウト" , sessions_logout_path , method: :post%>
+	</div>
+<% else %>
+	ようこそ「匿名ユーザー」さん。<br>
+	ログインせずにしたコメントは誰でも削除できます。<br>
+	ログインして行ったコメントは本人にしか削除できません。<br>
+	<div class='user-zone'>
+		<div class="user-zone-title">ユーザー登録・ログイン</div>
+		<div class = "user-zone-main">
+			<div class="alert alert-warning text_center">
 				<% if @user.errors.any? %><%#>警告などあればここに表示<%>
       				<% @user.errors.full_messages.each do |message| %>
         				<li><%= message %></li>
@@ -40,63 +40,63 @@
 				<%if flash[:login_notice] %><%#>警告などあればここに表示<%>
 					<li>*<%= flash[:login_notice]%>*</li>
 				<% end %>
-				</div>
+			</div>
 			<%= form_for(@user, url: sessions_registlogin_path , method: :post) do |f| %>
 				<table class = "block_center"><tr>
-				<td><%= f.text_field :name , :placeholder => "ユーザー名" , :maxlength => 10%></td>
-				<td><%= f.password_field :password , :placeholder => "パスワード"%></td>
+					<td><%= f.text_field :name , :placeholder => "ユーザー名" , :maxlength => 10%></td>
+					<td><%= f.password_field :password , :placeholder => "パスワード"%></td>
 				</tr></table>
 				<font size = "2">*ユーザー名は10字以内</font><br>
 				<%= submit_tag " 登録 "%> or <%= submit_tag "ログイン"%>
 			<% end %>
-			</div>
 		</div>
-	<% end %>
+	</div>
+<% end %>
 
-	<%# コメント入力欄 %>
-	<%= form_for(@chat , url: chat_add_path , method: :post) do |f| %>
-　		<table class = 'chat_input'>
-			<% if @chat.errors.any? %><%#>警告などあればここに表示<%>
-  				<div class="alert alert-warning text_center">
-      				<% @chat.errors.full_messages.each do |message| %>
-        				<li><%= message %></li>
-      				<% end %>
-  				</div>
-			<% end %>
-    		<tr>
-    		<td><%= f.text_area :text , :placeholder => "入力欄(100字以内)" , :maxlength => 100 , size: "35x3"%></td>
+<%# コメント入力欄 %>
+<%= form_for(@chat , url: chat_add_path , method: :post) do |f| %>
+	<table class = 'chat_input'>
+		<% if @chat.errors.any? %><%#>警告などあればここに表示<%>
+			<div class="alert alert-warning text_center">
+   				<% @chat.errors.full_messages.each do |message| %>
+       				<li><%= message %></li>
+   				<% end %>
+			</div>
+		<% end %>
+   		<tr>
+	   		<td><%= f.text_area :text , :placeholder => "入力欄(100字以内)" , :maxlength => 100 , size: "35x3"%></td>
 			<td><%= f.submit "　コメントする　"%></td>
-			</tr>
-		</table>
-	<% end %>
+		</tr>
+	</table>
+<% end %>
 
 
-	<div class = 'chat_zone container-fluid'>
-	<div class = chat_zone-title>チャット覧</div>
+<div class = 'chat_zone container-fluid'>
+<div class = chat_zone-title>チャット覧</div>
 
-	<table>
-		<%#新しいコメントが上に来るようにreverse  %>
-		<% @chatlog.reverse.each do |chat| %>
-  			<tr><%#>リスト配置 %>
-		  		<%# 名前部分 %>
-				<td class = min_td>
+<table>
+	<%#新しいコメントが上に来るようにreverse  %>
+	<% @chatlog.reverse.each do |chat| %>
+		<tr><%#>リスト配置 %>
+	  		<%# 名前部分 %>
+			<td class = min_td>
     			<% if chat.name == nil || chat.name == "" %>
 				 	「　」
     			<% else %>
         			<%= chat.name %>
   		  		<% end %>
-				</td>
+			</td>
 			<%# コメント部分 %>
   			<td class="balloon1">
    				<%=simple_format(chat.text)%>
   			</td>
 			<td class = min_td>
-			<%# 削除ボタンの表示判定（コメ主がいないor同一人物or管理者なら表示） %>
+				<%# 削除ボタンの表示判定（コメ主がいないor同一人物or管理者なら表示） %>
     			<% if( chat.name == nil || chat.name == "" || session[:user_name] == chat.name || session[:user_name] == "admin")%>
     				<%= link_to "[削除]" , chat_home_path(id: chat , name: session[:user_name]) , method: :delete %>
 	    		<% end %>
-				</td>
-			</tr>
-		<% end %>
-  	</table>
+			</td>
+		</tr>
+	<% end %>
+</table>
 

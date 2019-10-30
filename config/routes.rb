@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   #(登録、)ログイン、ログアウト用
   get 'sessions/registlogin' , to: "chat#home"#再読み込み回避用
   post 'sessions/registlogin' , to: "sessions#registlogin"
-
   post "sessions/logout" , to: "sessions#logout"
 
 
