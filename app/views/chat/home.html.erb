@@ -9,7 +9,7 @@
 	 	ようこそ「<%= params[:name] %>」さん
 		ログインせずにしたコメントは誰でも削除できます。<br>
 		ログインして行ったコメントは本人にしか削除できません。<br>
-		<div class='user_zone'>
+		<div class='user-zone'>
 			<%if flash[:alert] %><%#>警告あればここに表示<%>
 				<p><font size = "2">*<%= flash[:alert]%>*</font></p>
 			<% end %>
@@ -19,16 +19,19 @@
 		<p>ようこそ「匿名ユーザー」さん</p>
 		ログインせずにしたコメントは誰でも削除できます。<br>
 		ログインして行ったコメントは本人にしか削除できません。<br>
-		<div class='user_zone'>
-			<div class="user_zone-title">ユーザー登録・ログイン</div>
+		<div class='user-zone'>
+			<div class="user-zone-title">ユーザー登録・ログイン</div>
 			<%if flash[:alert] %><%#>警告あればここに表示<%>
 				<p><font size = "2">*<%= flash[:alert]%>*</font></p>
 			<% end %>
+
 			<%= form_for(@user, url: chat_regist_login_path() , method: :post) do |f| %>
+				<div class = user-zone-main>
 				<p><%= f.text_field :name , :placeholder => "ユーザー名" , :maxlength => 10%>
 				<%= f.password_field :password , :placeholder => "パスワード"%>
-				<font size = "2">*ユーザー名は10字以内</font></p>
+				<br><font size = "2">*ユーザー名は10字以内</font></p>
 				<%= submit_tag "　登録　"%> or <%= submit_tag "ログイン"%>
+				</div>
 			<% end %>
 		</div>
 	<% end %>

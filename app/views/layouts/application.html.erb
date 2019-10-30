@@ -13,33 +13,26 @@
     <script type='text/javascript' charset='utf-8' src='index.js'></script>
     <meta name='viewport' content='width=device-width,initial-scale=1'>
 
-    <%# <header class='whole-head'>
-      <div class = 'container-fluid'>
-        <span class='ribbon1'>★</span><span class='ribbon2'>★</span>
-        <div class='main-head'>" + "おいおいおい" + "</div>
-        <div class = 'sub-head'><script>nowday();</script></div>
-      </div>
 
-    </header>; %>
-    <%# <script string title_word = "ゆっくりしていってね!"> </script> %>
+    <% title_word = "ゆっくりしていってね!"%>
     <%tmp = Time.current.in_time_zone("Asia/Tokyo") %>
     <%time = "#{tmp.year}/#{tmp.month}/#{tmp.day}"%>
     <header class='whole-head'>
       <div class = 'container-fluid'><%#ヘッダー固定用の下敷き %>
         <span class='ribbon1'>★</span><span class='ribbon2'>★</span>
         <div class = 'header_contents'>
-          <div class='header-center'>ゆっくりしていきましょう</div>
+          <div class='header-center'><%=title_word%></div>
           <div class = 'header-right'><%=time%></div>
         </div>
       </div>
       
       <div class = 'container-fluid site-header'>
-        <span class = 'ribbon1'>★</span><span class = 'ribbon2'>★</span>
-          <div class = header_contents>
-              <p class ="migi"> </p>
-              <p class="mannaka">ゆっくりしていってね</p>
-              <p class="hidari"> <%=time%> </p>
-          </div>
+        <span class='ribbon1'>★</span><span class='ribbon2'>★</span>
+        <div class = 'header_contents'>
+          <div class='header-center'><%=title_word%></div>
+          <div class = 'header-right'><%=time%></div>
+        </div>
+      </div>
       </div>
 
     </header>
