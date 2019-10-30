@@ -130,9 +130,9 @@
     
     .left-sidebar {
         /* padding-left: 1em;
-  padding-top: 1em;
-  padding-right: 1em;
-  padding-bottom: 1em; */
+        padding-top: 1em;
+        padding-right: 1em;
+        padding-bottom: 1em; */
         position: fixed;
         margin-top: 1em;
         margin-left: 1em;
@@ -277,7 +277,7 @@
     .balloon1 {
         position: relative;
         display: inline-block;
-        margin: 0.5em 0 0.1em 1em;
+        margin: 0.1em;
         //padding: px 10px;
         color: #555;
         font-size: 16px;
@@ -296,9 +296,10 @@
         border-right: 15px solid #e0edff;
     }
     
+    //吹き出しのサイズ調整
     .balloon1 p {
         //margin: 0;
-        //padding: 0;
+        padding: 0.5em;
     }
     
     .chat_input {
@@ -308,9 +309,10 @@
         margin-right: auto;
     }
     
-    //.table-center-test {
-    //    text-align: center;
-    //}
+    .text_center {
+        text-align: center;
+        margin: 0;
+    }
     /* ボタン関係 */
     
     .square_btn {
@@ -349,17 +351,8 @@
     
     td,
     th {
-        padding: 5px, 10px;
+        padding: 3px, 3px;
         min-width: 100;
-    }
-    
-    th {
-        //background: #03A9F4;
-        //color: #fff;
-    }
-    
-    td {
-        //background: #DDFFFF;
     }
     
     //コメント欄の名前、削除のサイズ確保
@@ -372,10 +365,6 @@
     .snail_watch {
         text-align: center;
         position: relative;
-    }
-    
-    .snail_watch canvas {
-        /* position: absolute; */
     }
     
     canvas {
@@ -399,4 +388,14 @@
         z-index: 2;
         position: relative;
         border: solid 1px red;
+    }
+    
+    input[type="text"] {
+        width: 200px;
+        height: 40px;
+    }
+    
+    input[type="password"] {
+        width: 200px;
+        height: 40px;
     }
