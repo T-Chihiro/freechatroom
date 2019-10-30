@@ -18,10 +18,8 @@ class ChatController < ApplicationController
   #ユーザー登録・ログイン時
   def regist_login
 	@user = User.new(user_params)
-	puts @user
 	search_user = User.find_by(name: @user.name)
 	if params[:commit] == "登録"
-		puts  =  "登録中"
 		if search_user
 			flash[:alert] =  "その名前は既に登録されています"
 			@user.destroy
@@ -33,7 +31,6 @@ class ChatController < ApplicationController
 		end
 
 	elsif params[:commit] == "ログイン"
-		p "ログイン中"
 		search_user = User.find_by(name: @user.name)
 		if search_user && search_user.authenticate(@user.password)
 			flash[:alert] =  "ログイン成功"
@@ -58,7 +55,7 @@ class ChatController < ApplicationController
   #コメント追加時
   def add
     @chat = Chatlog.new(chat_params)
-    if @chat.text != ""
+    if @chat.text != ""#文字が書かれていればコメントとして認める
       @chat.save
     end
     redirect_to chat_home_path(name: params[:name])

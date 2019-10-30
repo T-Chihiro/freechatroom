@@ -7,6 +7,7 @@ class Session_Controller < ApplicationController
     if params.key?(:uid) || params.key?(:password)
       @user = User.find_by(uid: params[:uid], pass: params[:password])
       if @user#ログイン成功。sessionに値を保存する
+        flash[:notice] = "ログインに成功しました"
         session[:user_name] = @user.name
       else#ログイン失敗
         session[:user_name] = nil
