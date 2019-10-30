@@ -7,7 +7,6 @@ class ChatController < ApplicationController
     @chat = Chatlog.new(chat_params)
     #名前にユーザー名を入れる(ログインしていなかったらnil)
     @chat.name = session[:user_name]
-    #if @chat.text != ""#文字が書かれていればコメントとして認める
     if @chat.save
       redirect_to chat_home_path()
     else

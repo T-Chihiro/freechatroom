@@ -19,16 +19,10 @@
     
     .whole-head {
         font-size: large;
-        //position: relative;
         background: rgb(63, 207, 207);
         top: 0;
         z-index: 100;
-        /* font-family:bold; */
-        /* font-weight: bold; */
-        // border: solid 2px #4ec4d3;
         border-radius: 0 0 20px 20px;
-        //background-clip: padding-box;
-        //height: 100px;
         min-width: 600px;
     }
     
@@ -37,8 +31,6 @@
         display: table;
         width: 90%;
         justify-content: space-between;
-        //margin: 0 auto;
-        // height: 100%;
     }
     
     //ヘッダーがずれないようにヘッダーの下に潜り込ませるヘッダー
@@ -54,24 +46,16 @@
     .header-right {
         position: relative;
         color: #FFF;
-        //margin-right: 0;
         text-align: right;
         font-size: 0.7em;
     }
     
     //ヘッダーを画面に固定するためのCSS
     .site-header {
-        /* background-repeat: repeat-x; */
-        /* background-position: 0px 50px; */
         background: #03A9F4;
         top: 0;
         position: fixed;
-        /* margin-top: 0; */
-        /* height: 112px; */
         z-index: 100; //他のものより上に来るようにする
-        /* width: 100%; */
-        /* heigth: 100px; */
-        /* text-align: center; */
         border-radius: 0 0 20px 20px;
     }
     
@@ -309,6 +293,12 @@
         margin-right: auto;
     }
     
+    .block_center {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
     .text_center {
         text-align: center;
         margin: 0;
@@ -391,11 +381,11 @@
     }
     
     input[type="text"] {
-        width: 200px;
+        width: 180px;
         height: 40px;
     }
     
     input[type="password"] {
-        width: 200px;
+        width: 180px;
         height: 40px;
     }

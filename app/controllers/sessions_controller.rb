@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
         #else
           #flash[:login_notice] =  "入力が不適切です"
         #end
+
         render template: "chat/home"
       end
     elsif params[:commit] == "ログイン"
@@ -26,9 +27,9 @@ class SessionsController < ApplicationController
         redirect_to chat_home_path()
       else
         if search_user
-          flash[:login_notice] =  "パスワードが間違っています"
+          @user.errors.add(:password , "が間違っています")
         else
-          flash[:login_notice] =  "ユーザー「#{@user.name}」は存在しません"
+          @user.errors.add(:name , "「#{@user.name}」は登録されていません")
         end
           session[:user_name] = nil
           render template: "chat/home"
