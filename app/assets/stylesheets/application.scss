@@ -22,17 +22,19 @@
 
     .whole-head {
         font-size: large;
-        background: rgb(63, 207, 207);
+        background: rgb(255, 255, 255);
         top: 0;
         z-index: 100;
         border-radius: 0 0 20px 20px;
-        min-width: 550px;
+        //min-width: 700px;
+        //margin: 0 auto;
+        min-width: 500px;
     }
     
     .header-contents {
         position: relative;
         display: table;
-        width: 90%;
+        //width: 90%;
         justify-content: space-between;
         border-radius: 0 0 20px 20px;
     }
@@ -60,6 +62,8 @@
         background: #03A9F4;
         top: 0;
         position: fixed;
+        min-width: 500px;
+        //margin: 0 auto;
         z-index: 100; //他のものより上に来るようにする
         border-radius: 0 0 20px 20px;
     }
@@ -159,6 +163,7 @@
         margin-bottom: 1em;
         margin-left: auto;
         margin-right: auto;
+        min-width: 450px;
         border-radius: 1em;
         border: solid 2px #03A9F4;
         border-color: #0033FF;
@@ -314,7 +319,7 @@
     td,
     th {
         padding: 3px, 3px;
-        min-width: 100;
+        min-width: 100px;
     }
     
     //コメント欄の名前、削除のサイズ確保
