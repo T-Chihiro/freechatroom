@@ -17,7 +17,7 @@
     @import "bootstrap";
     /*ヘッダー関係*/
     .whole-page{
-        min-width: 550px;;
+        min-width: 500px;;
     }
 
     .whole-head {
@@ -44,6 +44,7 @@
         text-align: center;
         font-size: 1.5em;
         font-weight: bold;
+        border-radius: 0 0 20px 20px;
     }
     
     //ヘッダーがずれないようにヘッダーの下にも繰り込ませるヘッダー
@@ -156,6 +157,8 @@
         padding-bottom: 1em;
         margin-top: 1em;
         margin-bottom: 1em;
+        margin-left: auto;
+        margin-right: auto;
         border-radius: 1em;
         border: solid 2px #03A9F4;
         border-color: #0033FF;
