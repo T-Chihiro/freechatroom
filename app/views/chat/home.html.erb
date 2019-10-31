@@ -12,17 +12,22 @@
 	ログインせずにしたコメントは誰でも削除できます。<br>
 	ログインして行ったコメントは本人しか削除できません。<br>
 	<div class='user-zone'>
-		<div class="alert alert-warning text_center">
-			<% if @user.errors.any? %><%#>警告などあればここに表示<%>
-   				<% @user.errors.full_messages.each do |message| %>
-       				<li><%= message %></li>
-   				<% end %>
+		<div class="user-zone-title">ログイン中…</div>
+		<div class = "user-zone-main">
+			<% if @user.errors.any?  || flash[:login_notice] %><%#>警告などあればここに表示<%>
+				<div class="alert alert-warning text_center">
+					<% if @user.errors.any? %><%#>警告などあればここに表示<%>
+   						<% @user.errors.full_messages.each do |message| %>
+       						<li><%= message %></li>
+   						<% end %>
+					<%end%>
+					<%if flash[:login_notice] %><%#>警告などあればここに表示<%>
+						<li>*<%= flash[:login_notice]%>*</li>
+					<% end %>
+				</div>
 			<%end%>
-			<%if flash[:login_notice] %><%#>警告などあればここに表示<%>
-				<li>*<%= flash[:login_notice]%>*</li>
-			<% end %>
+	  		<%= session[:user_name] %>さん<%= button_to "ログアウトする" , sessions_logout_path , method: :post%>
 		</div>
-	  	<%= session[:user_name] %>さん<%= button_to "ログアウト" , sessions_logout_path , method: :post%>
 	</div>
 <% else %>
 	ようこそ「匿名ユーザー」さん。<br>
@@ -31,16 +36,18 @@
 	<div class='user-zone'>
 		<div class="user-zone-title">ユーザー登録・ログイン</div>
 		<div class = "user-zone-main">
-			<div class="alert alert-warning text_center">
-				<% if @user.errors.any? %><%#>警告などあればここに表示<%>
-      				<% @user.errors.full_messages.each do |message| %>
-        				<li><%= message %></li>
-      				<% end %>
-				<%end%>
-				<%if flash[:login_notice] %><%#>警告などあればここに表示<%>
-					<li>*<%= flash[:login_notice]%>*</li>
-				<% end %>
-			</div>
+			<% if @user.errors.any? || flash[:login_notice] %>
+				<div class="alert alert-warning text_center">
+					<% if @user.errors.any? %><%#>警告などあればここに表示<%>
+      					<% @user.errors.full_messages.each do |message| %>
+        					<li><%= message %></li>
+      					<% end %>
+					<%end%>
+					<%if flash[:login_notice] %><%#>警告などあればここに表示<%>
+						<li>*<%= flash[:login_notice]%>*</li>
+					<% end %>
+				</div>
+			<%end%>
 			<%= form_for(@user, url: sessions_registlogin_path , method: :post) do |f| %>
 				<table class = "block_center"><tr>
 					<td><%= f.text_field :name , :placeholder => "ユーザー名" , :maxlength => 10%></td>
