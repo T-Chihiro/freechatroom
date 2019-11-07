@@ -330,29 +330,6 @@
         word-wrap: normal;
     }
     
-    .snail_watch {
-        text-align: center;
-        position: relative;
-    }
-    
-    canvas {
-        border: solid 1px #0033FF;
-    }
-    
-    #snail_canvas1 {
-        background-color: white;
-        z-index: 1;
-        border: solid 1px black;
-        position: absolute
-    }
-    
-    #snail_canvas2 {
-        background-color: transparent;
-        z-index: 2;
-        position: relative;
-        border: solid 1px red;
-    }
-    
     input[type="text"] {
         width: 180px;
         height: 40px;

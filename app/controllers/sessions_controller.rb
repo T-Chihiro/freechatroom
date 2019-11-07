@@ -1,5 +1,6 @@
 #session管理コントローラー
 class SessionsController < ApplicationController
+
   #ユーザー登録、ログイン判定
   def registlogin
     @user = User.new(user_params)
@@ -31,8 +32,6 @@ class SessionsController < ApplicationController
     else
       redirect_to chat_home_path()
     end
-
-
   end
 
 
