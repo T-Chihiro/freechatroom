@@ -14,7 +14,7 @@ gem 'postgresql', group: :production
 #gem 'bootstrap-sass' , '~>3.3.6'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets 通常ならコメントアウトついてない
 gem 'sass-rails', '~> 5.0'
 #gem 'sass-rails', '>= 3.2'
